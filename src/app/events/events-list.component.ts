@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 * The event-thumbnail component has an input parameter called [event]. 
 * Inter component communication. 3 different ways: input properties, output properties and template variables.
 * "event1" is a reference to the field event1 in the EventsListComponent class.
-* '#thumbnail' is a template variable. Through this variable we can assess properties and methods 
 * within the event-thumbnail component such as 'logFoo()' or 'someProperty'.
 */
 @Component({
@@ -13,9 +12,7 @@ import { Component } from '@angular/core';
     <div>
         <h1>Upcoming Angular Events</h1>
         <hr>
-        <event-thumbnail #thumbnail [event]="event1"></event-thumbnail>
-        <h3>{{thumbnail.someProperty}}</h3>
-        <button class="btn btn-primary" (click)="thumbnail.logFoo()"> Log me some foos</button>
+        <event-thumbnail [event]="event1"></event-thumbnail>
     </div>
     `
 })

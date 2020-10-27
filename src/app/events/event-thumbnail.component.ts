@@ -1,5 +1,8 @@
 import { Component, Input} from '@angular/core';
-
+/**
+ * Angular is taking care of encapsulating our CSS styles.
+ * The styles below are only applied within this specific component. 
+ */
 @Component({
     selector: 'event-thumbnail',
     template: `
@@ -25,9 +28,4 @@ export class EventThumbnailComponent {
      * will be passed in from a different component.
      */
     @Input() event:any
-    someProperty:any = "some value"
-
-    logFoo(){
-        console.log('foo')
-    }
 }

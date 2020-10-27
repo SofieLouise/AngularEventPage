@@ -20,5 +20,14 @@ import { Component, Input} from '@angular/core';
     `]
 })
 export class EventThumbnailComponent {
+    /**
+     * This @Input decorator tells Angular that this event object 
+     * will be passed in from a different component.
+     */
     @Input() event:any
+    someProperty:any = "some value"
+
+    logFoo(){
+        console.log('foo')
+    }
 }

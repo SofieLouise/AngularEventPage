@@ -2,19 +2,22 @@ import { Component, Input} from '@angular/core';
 /**
  * Angular is taking care of encapsulating our CSS styles.
  * The styles below are only applied within this specific component. 
+ * ? is a safe navigation operator ( ?. ) . It's an Angular template expression operator. 
+ * Safe navigation operator avoids exception for null and undefined values in property paths.
  */
 @Component({
     selector: 'event-thumbnail',
     template: `
     <div class="well hoverwell thumbnail">
-        <h2>{{event.name}}</h2>
-        <div>Date: {{event.date}}</div>
-        <div>Time: {{event.time}}</div>
-        <div>Price: {{event.price}} DKK </div>
+        <h2>{{event?.name}}</h2>
+        <div>Date: {{event?.date}}</div>
+        <div>Time: {{event?.time}}</div>
+        <div>Price: {{event?.price}} DKK </div>
         <div>
-            <span>Location: {{event.location.address}}</span>
-            <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
+            <span>Location: {{event?.location?.address}}</span>
+            <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
         </div>
+        <div>Online URL: {{event?.onlineUrl}}
     </div>
     `,
     styles: [`

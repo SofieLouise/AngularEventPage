@@ -26,7 +26,7 @@ export class EventsListComponent {
         city: "London",
         country: "England",
       },
-      sessions: [
+       sessions: [
         {
           id: 1,
           name: "Using Angular 4 Pipes",
@@ -99,11 +99,7 @@ export class EventsListComponent {
       time: "9:00 am",
       price: 950.0,
       imageUrl: "/assets/images/ng-nl.png",
-      location: {
-        address: "The NG-NL Convention Center & Scuba Shop",
-        city: "Amsterdam",
-        country: "Netherlands",
-      },
+      onlineUrl: "http://ng-nl.org/",
       sessions: [
         {
           id: 1,

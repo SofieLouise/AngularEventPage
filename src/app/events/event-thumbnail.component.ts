@@ -1,9 +1,10 @@
 import { Component, Input} from '@angular/core';
 /**
- * Angular is taking care of encapsulating our CSS styles.
- * The styles below are only applied within this specific component. 
+ * Angular is taking care of encapsulating our CSS styles. The styles below are only applied within this specific component.
  * ? is a safe navigation operator ( ?. ) . It's an Angular template expression operator. 
- * Safe navigation operator avoids exception for null and undefined values in property paths.
+ *      Safe navigation operator avoids exception for null and undefined values in property paths.
+ * * ngIf is used to render the DOM element if the expression is true. Otherwise it will be commented out and not rendered. 
+ *      This is especially practical if we have components that fetch data from a server. When ngIf returns false, it won't do that.
  */
 @Component({
     selector: 'event-thumbnail',
@@ -13,11 +14,11 @@ import { Component, Input} from '@angular/core';
         <div>Date: {{event?.date}}</div>
         <div>Time: {{event?.time}}</div>
         <div>Price: {{event?.price}} DKK </div>
-        <div>
+        <div *ngIf="event?.location">
             <span>Location: {{event?.location?.address}}</span>
             <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
         </div>
-        <div>Online URL: {{event?.onlineUrl}}
+        <div *ngIf="event?.onlineUrl">Online URL: {{event?.onlineUrl}}
     </div>
     `,
     styles: [`

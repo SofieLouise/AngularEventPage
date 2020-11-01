@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { EventService } from './shared/events.service';
+import { ToastrService } from '../common/toastr.service';
+import { EventService } from "./shared/events.service";
 
 /*
  * The event-thumbnail component has an input parameter called [event].
@@ -11,16 +12,19 @@ import { EventService } from './shared/events.service';
  */
 @Component({
   selector: "events-list",
-  templateUrl: "events-list.component.html"
+  templateUrl: "events-list.component.html",
 })
-export class EventsListComponent implements OnInit{
-  events:any[]
+export class EventsListComponent implements OnInit {
+  events: any[];
   // private is short hand for assigning the value to a private variable called eventService in this class.
-  constructor(private eventService: EventService){
-  }
-  
+  constructor(private eventService: EventService, private toastrService: ToastrService) {}
+
   // Hooks into the initialization of the component
-  ngOnInit(){
-    this.events = this.eventService.getEvents()
+  ngOnInit() {
+    this.events = this.eventService.getEvents();
+  }
+
+  handleThumbnailClick(eventName) {
+    this.toastrService.success(eventName)
   }
 }

@@ -5,6 +5,9 @@ import { Component, Input} from '@angular/core';
  *      Safe navigation operator avoids exception for null and undefined values in property paths.
  * * ngIf is used to render the DOM element if the expression is true. Otherwise it will be commented out and not rendered. 
  *      This is especially practical if we have components that fetch data from a server. When ngIf returns false, it won't do that.
+ * But ngIf can be resource heavy, if we show and hide frequently. To avoid having to render the DOM everytime we can use another approach:
+ *      We bind to the DOM element using [hidden]. We set hidden to the boolean value returned by the expression "!event?.location". 
+ *      Angular sets the hidden property on the DOM element to the boolean value. This way the DOM element is still rendered, but hidden.
  */
 @Component({
     selector: 'event-thumbnail',
@@ -14,7 +17,7 @@ import { Component, Input} from '@angular/core';
         <div>Date: {{event?.date}}</div>
         <div>Time: {{event?.time}}</div>
         <div>Price: {{event?.price}} DKK </div>
-        <div *ngIf="event?.location">
+        <div [hidden]="!event?.location">
             <span>Location: {{event?.location?.address}}</span>
             <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
         </div>

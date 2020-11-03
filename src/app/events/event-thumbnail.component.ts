@@ -43,7 +43,7 @@ export class EventThumbnailComponent {
     @Input() event:any
 
     getStartTimeStyle(){
-        //Different approaches: You can return a space separated string, a list or an object with classes you want applied
+        //Different approaches: You can return a space separated string, a list or an object with styles you want applied
         if(this.event && this.event.time === '8:00 am'){
             return {color: '#003300',
             'font-weight': 'bold'}

@@ -11,7 +11,6 @@ import { EventService } from "./shared/event.service";
  * In this case it adds an event-thumbnail component for each event.
  */
 @Component({
-  selector: "events-list",
   templateUrl: "events-list.component.html",
 })
 export class EventsListComponent implements OnInit {
